@@ -1,0 +1,25 @@
+.warning {
+    display: none;
+  }
+
+.form-section{
+    display: flex;
+    justify-content: center;
+}
+
+.input-section{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.input-label{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.hidden{
+    display: none;
+}
