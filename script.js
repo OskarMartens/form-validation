@@ -43,12 +43,14 @@ function validateEmail() {
     validEmail = true;
     updateSubmitButton();
   } else if (emailInput.value.length == 0) {
+    validEmail = false;
     emailInput.classList.add("valid-input");
     emailInput.classList.remove("non-valid-input");
 
     emailWarning.classList.add("hide-warning");
     emailWarning.classList.remove("show-warning");
   } else {
+    validEmail = false;
     emailInput.classList.add("non-valid-input");
     emailWarning.classList.add("show-warning");
   }
@@ -77,6 +79,7 @@ function validatePassword() {
     passwordWarning.classList.add("hide-warning");
 
   } else if (passwordInput.value.length == 0) {
+    validPassword = false;
     passwordInput.classList.add("valid-input");
     passwordInput.classList.remove("non-valid-input");
 
@@ -84,6 +87,7 @@ function validatePassword() {
     passwordWarning.classList.add("hide-warning");
 
   } else {
+    validPassword = false;
     passwordInput.classList.remove("valid-input");
     passwordInput.classList.add("non-valid-input");
 
@@ -93,6 +97,7 @@ function validatePassword() {
 
   //Confirm password matching validation
   if (passwordInput.value === confirmPasswordInput.value) {
+    validPassword = false;
     confirmPasswordInput.classList.add("valid-input");
     confirmPasswordInput.classList.remove("non-valid-input");
 
@@ -100,12 +105,14 @@ function validatePassword() {
     confirmPasswordWarning.classList.remove("show-warning");
 
   } else if(confirmPasswordInput.value.length == 0){
+    validPassword = false;
     confirmPasswordInput.classList.add("valid-input");
     confirmPasswordInput.classList.remove("non-valid-input");
 
     confirmPasswordWarning.classList.remove("show-warning");
     confirmPasswordWarning.classList.add("hide-warning");
   } else {
+    validPassword = false;
     confirmPasswordInput.classList.remove("valid-input");
     confirmPasswordInput.classList.add("non-valid-input");
 
@@ -151,10 +158,7 @@ confirmPasswordInput.addEventListener("focusout", () => {
 
 
 function updateSubmitButton() {
-  console.log(validName);
-  console.log(validUsername);
-  console.log(validEmail);
-  console.log(validPassword);
+
   if (validName && validUsername && validEmail && validPassword) {
     btn.classList.remove("hidden");
     btnDisabled.add("hidden");
