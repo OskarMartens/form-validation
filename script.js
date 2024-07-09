@@ -8,7 +8,8 @@ const passwordWarning = document.getElementById("passwordWarning");
 const confirmPasswordWarning = document.getElementById(
   "confirmPasswordWarning"
 );
-const btn = document.querySelector(".register-button");
+const btn = document.getElementById("submit-btn");
+const btnDisabled = document.getElementById("btn-disabled");
 
 var validName = false;
 var validUsername = false;
@@ -150,10 +151,16 @@ confirmPasswordInput.addEventListener("focusout", () => {
 
 
 function updateSubmitButton() {
+  console.log(validName);
+  console.log(validUsername);
+  console.log(validEmail);
+  console.log(validPassword);
   if (validName && validUsername && validEmail && validPassword) {
     btn.classList.remove("hidden");
+    btnDisabled.add("hidden");
   } else {
     btn.classList.add("hidden");
+    btnDisabled.remove("hidden");
   }
 }
 

@@ -1,3 +1,6 @@
+*{
+    font-family: "Crimson Text", serif;
+}
 .main-section {
   display: flex;
   flex-direction: column;
@@ -7,6 +10,11 @@
 .form-section {
   display: flex;
   justify-content: center;
+  border-top: solid #DBB5B5 10px;
+  border-left: solid #DBB5B5 10px;
+  border-right: solid #987070 5px;
+  border-bottom: solid #987070 5px;
+  padding: 1em;
 }
 
 .input-section {
@@ -40,4 +48,30 @@
 
 .show-warning{
     display: inline;
+}
+
+.btn{
+    /* opacity: 0.5; */
+    background-color: #DEF9C4;
+    text-align: center;
+    padding: 1em;
+    color: black;
+}
+
+/* .btn{
+    opacity: 0.5;
+    background-color: #DEF9C4;
+    text-align: center;
+    padding: 1em;
+    color: white;
+    border: solid red;
+} */
+
+.btn-disabled{
+    opacity: 0.2;
+    background-color: grey;
+    text-align: center;
+    padding: 1em;
+    color: black;
+    cursor: not-allowed;
 }
