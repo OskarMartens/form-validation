@@ -29,87 +29,27 @@ usernameInput.addEventListener("input", () => {
   } else validUsername = false;
 });
 
-//Password validation function
-function validatePassword() {
-  validPassword = false;
-  //Password length validation
-  if (passwordInput.value.length === 0) {
-    passwordInput.style.background = "white";
-    passwordWarning.style.display = "none";
-  } else if (passwordInput.value.length >= 8) {
-    passwordInput.style.background = "white";
-    passwordWarning.style.display = "none";
-  } else {
-    passwordInput.style.background = "pink";
-    passwordWarning.style.display = "inline";
-  }
-
-  //Confirm password matching validation
-  if (passwordInput.value === confirmPasswordInput.value) {
-    confirmPasswordInput.style.background = "white";
-    confirmPasswordWarning.style.display = "none";
-  } else {
-    confirmPasswordInput.style.background = "pink";
-    confirmPasswordWarning.style.display = "inline";
-  }
-
-  //Set valid email variable
-  if (
-    passwordInput.value.length >= 8 &&
-    passwordInput.value === confirmPasswordInput.value
-  ) {
-    validPassword = true;
-    updateSubmitButton();
-  }
-}
-
-//Password eventlistener
-passwordInput.addEventListener("focus", (event) => {
-  event.target.style.background = "pink";
-  validatePassword();
-});
-
-passwordInput.addEventListener("input", (event) => {
-  event.target.style.background = "pink";
-  validatePassword();
-});
-
-passwordInput.addEventListener("focusout", () => {
-  validatePassword();
-});
-
-//Confirm password eventlistener
-confirmPasswordInput.addEventListener("focus", (event) => {
-  event.target.style.background = "pink";
-  validatePassword();
-});
-
-confirmPasswordInput.addEventListener("input", () => {
-  validatePassword();
-});
-
-confirmPasswordInput.addEventListener("focusout", () => {
-  validatePassword();
-});
-
-//Validate email
 function validateEmail() {
   validEmail = false;
   //Validate email with regex
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (emailRegex.test(emailInput.value)) {
-    emailInput.style.background = "white";
-    emailWarning.style.display = "none";
+    emailInput.classList.add("valid-input");
+    emailInput.classList.remove("non-valid-input");
+
+    emailWarning.classList.add("hide-warning");
+    emailWarning.classList.remove("show-warning");
     validEmail = true;
     updateSubmitButton();
-  } else {
-    emailInput.style.background = "pink";
-    emailWarning.style.display = "inline";
-  }
+  } else if (emailInput.value.length == 0) {
+    emailInput.classList.add("valid-input");
+    emailInput.classList.remove("non-valid-input");
 
-  if (emailInput.value.length == 0) {
-    emailWarning.style.display = "none";
-    emailInput.style.background = "white";
+    emailWarning.classList.add("hide-warning");
+    emailWarning.classList.remove("show-warning");
+  } else {
+    emailInput.classList.add("non-valid-input");
+    emailWarning.classList.add("show-warning");
   }
 }
 
@@ -123,6 +63,91 @@ emailInput.addEventListener("input", () => {
 emailInput.addEventListener("focusout", () => {
   validateEmail();
 });
+
+//Password validation function
+function validatePassword() {
+  validPassword = false;
+  //Password length validation
+  if (passwordInput.value.length >= 8) {
+    passwordInput.classList.add("valid-input");
+    passwordInput.classList.remove("non-valid-input");
+
+    passwordWarning.classList.remove("show-warning");
+    passwordWarning.classList.add("hide-warning");
+
+  } else if (passwordInput.value.length == 0) {
+    passwordInput.classList.add("valid-input");
+    passwordInput.classList.remove("non-valid-input");
+
+    passwordWarning.classList.remove("show-warning");
+    passwordWarning.classList.add("hide-warning");
+
+  } else {
+    passwordInput.classList.remove("valid-input");
+    passwordInput.classList.add("non-valid-input");
+
+    passwordWarning.classList.add("show-warning");
+    passwordWarning.classList.remove("hide-warning");
+  }
+
+  //Confirm password matching validation
+  if (passwordInput.value === confirmPasswordInput.value) {
+    confirmPasswordInput.classList.add("valid-input");
+    confirmPasswordInput.classList.remove("non-valid-input");
+
+    confirmPasswordWarning.classList.add("hide-warning");
+    confirmPasswordWarning.classList.remove("show-warning");
+
+  } else if(confirmPasswordInput.value.length == 0){
+    confirmPasswordInput.classList.add("valid-input");
+    confirmPasswordInput.classList.remove("non-valid-input");
+
+    confirmPasswordWarning.classList.remove("show-warning");
+    confirmPasswordWarning.classList.add("hide-warning");
+  } else {
+    confirmPasswordInput.classList.remove("valid-input");
+    confirmPasswordInput.classList.add("non-valid-input");
+
+    confirmPasswordWarning.classList.remove("hide-warning");
+    confirmPasswordWarning.classList.add("show-warning");
+  }
+
+  //Set valid email variable
+  if (
+    passwordInput.value.length >= 8 &&
+    passwordInput.value === confirmPasswordInput.value
+  ) {
+    validPassword = true;
+    updateSubmitButton();
+  }
+}
+
+//Password eventlistener
+passwordInput.addEventListener("focus", () => {
+  validatePassword();
+});
+
+passwordInput.addEventListener("input", () => {
+  validatePassword();
+});
+
+passwordInput.addEventListener("focusout", () => {
+  validatePassword();
+});
+
+//Confirm password eventlistener
+confirmPasswordInput.addEventListener("focus", (event) => {
+  validatePassword();
+});
+
+confirmPasswordInput.addEventListener("input", () => {
+  validatePassword();
+});
+
+confirmPasswordInput.addEventListener("focusout", () => {
+  validatePassword();
+});
+
 
 function updateSubmitButton() {
   if (validName && validUsername && validEmail && validPassword) {

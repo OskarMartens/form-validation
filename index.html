@@ -7,45 +7,48 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-      <h1>Register</h1>
-      <form action="" class="form-section">
-      <section class="input-section">
-        <label class="input-label">
-          Name:
-          <input type="text" class="input-field" id="name" />
-        </label>
+    <main class="main-section">
+        <h1>Register</h1>
+        <form action="" class="form-section">
+        <section class="input-section">
+          <label class="input-label">
+            Name:
+            <input type="text" class="input-field" id="name" />
+          </label>
+  
+          <label class="input-label">
+            Username:
+            <input type="text" class="input-field" id="username" />
+          </label>
+  
+          <label class="input-label">
+            E-mail:
+            <input type="email" class="input-field" id="email" />
+          </label>
+          <span id="emailWarning" class="hide-warning">The email is not valid.</span>
+  
+  
+          <label class="input-label">
+            Password:
+            <input type="password" class="input-field" id="password" />
+          </label>
+          <span id="passwordWarning" class="hide-warning"
+            >Password must be at least 8 characters.</span
+          >
+  
+          <label class="input-label">
+            Confirm password:
+            <input type="password" class="input-field" id="confirm-password" />
+          </label>
+          <span id="confirmPasswordWarning" class="hide-warning"
+            >Passwords do not match.</span
+          >
+          <button class="register-button hidden" type="submit">Register</button>
+        </section>
+  
+      </form>
+    </main>
 
-        <label class="input-label">
-          Username:
-          <input type="text" class="input-field" id="username" />
-        </label>
-
-        <label class="input-label">
-          E-mail:
-          <input type="email" class="input-field" id="email" />
-        </label>
-        <span id="emailWarning" class="warning">The email is not valid.</span>
-
-
-        <label class="input-label">
-          Password:
-          <input type="password" class="input-field" id="password" />
-        </label>
-        <span id="passwordWarning" class="warning"
-          >Password must be at least 8 characters.</span
-        >
-
-        <label class="input-label">
-          Confirm password:
-          <input type="password" class="input-field" id="confirm-password" />
-        </label>
-        <span id="confirmPasswordWarning" class="warning"
-          >Passwords do not match.</span
-        >
-        <button class="register-button hidden" type="submit">Register</button>
-      </section>
-
-    </form>
 
     <script src="script.js"></script>
   </body>
