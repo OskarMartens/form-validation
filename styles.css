@@ -19,7 +19,9 @@ body{
 
 .header-container{
   background-color: whitesmoke;
-  opacity: 0.4;
+  opacity: 0.9;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 h1{
@@ -34,7 +36,7 @@ h1{
   border-left: solid #DBB5B5 10px;
   border-right: solid #987070 5px;
   border-bottom: solid #987070 5px;
-  padding: 1em;
+  padding: 3em;
 }
 
 .input-section {
